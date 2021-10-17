@@ -30,3 +30,9 @@ Como o intuito da Atividade era criar tudo manualmente pelo terminal usei o nano
 ## Parte 3:
 
 Aqui é a criação dos links, também feita de forma manual pelo terminal.
+![App Screenshot](SS3.png)
+
+![App Screenshot](SS4.png)
+
+### Aqui por ultimo todos os links criados.
+![App Screenshot](SS5.png)
