@@ -12,6 +12,6 @@ Considere o arquivo auth.log (também disponível na pasta /home/compartilhado n
         R:
 
     4. Um comando grep que encontre todas as vezes que alguém conseguiu fazer login com sucesso nos dias 11 ou 12 de Outubro.
-        R:
+        R: egrep -c '^(Oct 1(1|2)|).{55}session opened' auth.log
 
-    5. Só é permitido usar um único comando grep para cada item acima, sem pipes ou redirecionamentos de entrada e saída.
+* Só é permitido usar um único comando grep para cada item acima, sem pipes ou redirecionamentos de entrada e saída.
