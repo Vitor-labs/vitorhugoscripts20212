@@ -1,4 +1,4 @@
-
+# Correção: 2,0
 grep -v 'sshd' auth.log
 
 egrep 'sshd:session): session opened for user j.' auth.log
