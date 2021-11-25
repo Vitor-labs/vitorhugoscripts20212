@@ -1,4 +1,7 @@
 #!/bin/bash
+# Correção: 0,5
+# Por alguma razão, não está entrando no laço while.
+# Faça o checkout do seu repositório no servidor e tente executar seu script. Se conseguir rodar, fale comigo que reviso a nota.
 
 #args
 tempo=${1}
