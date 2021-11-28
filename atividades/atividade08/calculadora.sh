@@ -9,11 +9,10 @@ while true; do
     read entrada
     if [[ $entrada = "=" ]]; then
         break
-    else if ! [[ $entrada =~ $re ]] ; then
+     ! [[ $entrada =~ $re ]] ; then
         ops=($entrada)
     else
         nuns=($entrada)
-    fi
     fi
 done
 
