@@ -1,26 +1,46 @@
 #!/bin/bash
 
-echo "Digite o primeiro numero: "
-read num1
-echo "Digite o segundo numero: "
-read num2
-echo "Digite a operacao: "
-read operacao
+nuns=()
+ops=()
+re='^[0-9]+([.][0-9]+)?$'
 
-case $operacao in
-    '+')
-        echo $num1 + $num2 | bc
-        ;;
-    '-')
-        echo $num1 - $num2 | bc
-        ;;
-    'x')
-        echo $num1 \* $num2 | bc
-        ;;
-    '/')
-        echo $num1 / $num2 | bc
-        ;;
-    *)
-        echo "Operacao invalida"
-        ;;
-esac
+echo 'digite "=" para sair'
+while true; do
+    read entrada
+    if [[ $entrada = "=" ]]; then
+        break
+    else if ! [[ $entrada =~ $re ]] ; then
+        ops=($entrada)
+    else
+        nuns=($entrada)
+    fi
+    fi
+done
+
+retorno=0
+declare -i num1=${nuns[0]}
+
+for i in ${ops[@]}; do
+    if [[ $i = "+" ]]; then
+        declare -i num2=${nuns[1]}
+        $retorno=$($num1 + $num2 | bc)
+        num1=$retorno
+        nuns=(${nuns[@]:2})
+    elif [[ $i = "-" ]]; then
+        declare -i num2=${nuns[1]}
+        $retorno=$($num1 - $num2 | bc)
+        num1=$retorno
+        nuns=(${nuns[@]:2})
+    elif [[ $i = "*" ]]; then
+        declare -i num2=${nuns[1]}
+        retorno=$($num1 \* $num2 | bc)
+        num1=$retorno
+        nuns=(${nuns[@]:2})
+    elif [[ $i = "/" ]]; then
+        declare -i num2=${nuns[1]}
+        retorno=$($num1 / $num2 | bc)
+        num1=$retorno
+        nuns=(${nuns[@]:2})
+    fi
+done
+echo $retorno
