@@ -18,29 +18,20 @@ while true; do
 done
 
 retorno=0
-declare -i num1=${nuns[0]}
+num1=${nuns[0]}
+num2=${nuns[1]}
 
 for i in ${ops[@]}; do
     if [[ $i = "+" ]]; then
-        declare -i num2=${nuns[1]}
-        $retorno=$($num1 + $num2 | bc)
-        num1=$retorno
-        nuns=(${nuns[@]:2})
+        retorno=$(echo $num1 + $num2 | bc)
     elif [[ $i = "-" ]]; then
-        declare -i num2=${nuns[1]}
-        $retorno=$($num1 - $num2 | bc)
-        num1=$retorno
-        nuns=(${nuns[@]:2})
+        retorno=$(echo $num1 - $num2 | bc)
     elif [[ $i = "*" ]]; then
-        declare -i num2=${nuns[1]}
-        retorno=$($num1 \* $num2 | bc)
-        num1=$retorno
-        nuns=(${nuns[@]:2})
+        retorno=$(echo $num1 \* $num2 | bc)
     elif [[ $i = "/" ]]; then
-        declare -i num2=${nuns[1]}
-        retorno=$($num1 / $num2 | bc)
-        num1=$retorno
-        nuns=(${nuns[@]:2})
+        retorno=$(echo $num1 / $num2 | bc)
     fi
+    nuns=(${nuns[@]:2})
+    num1=$retorno
 done
 echo $retorno
