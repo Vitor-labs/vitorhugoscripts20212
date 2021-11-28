@@ -1,36 +1,27 @@
+@ -0,0 +1,26 @@
 #!/bin/bash
 
-nuns=()
-ops=()
-re='^[0-9]+([.][0-9]+)?$'
+echo "Digite o primeiro numero: "
+read num1
+echo "Digite o segundo numero: "
+read num2
+echo "Digite a operacao: "
+read operacao
 
-echo 'digite "=" para sair'
-while true; do
-    read entrada
-    if [[ $entrada = "=" ]]; then
-        break
-     ! [[ $entrada =~ $re ]] ; then
-        ops=($entrada)
-    else
-        nuns=($entrada)
-    fi
-done
-
-retorno=0
-num1=${nuns[0]}
-num2=${nuns[1]}
-
-for i in ${ops[@]}; do
-    if [[ $i = "+" ]]; then
-        retorno=$(echo $num1 + $num2 | bc)
-    elif [[ $i = "-" ]]; then
-        retorno=$(echo $num1 - $num2 | bc)
-    elif [[ $i = "*" ]]; then
-        retorno=$(echo $num1 \* $num2 | bc)
-    elif [[ $i = "/" ]]; then
-        retorno=$(echo $num1 / $num2 | bc)
-    fi
-    nuns=(${nuns[@]:2})
-    num1=$retorno
-done
-echo $retorno
+case $operacao in
+    '+')
+        echo $num1 + $num2 | bc
+        ;;
+    '-')
+        echo $num1 - $num2 | bc
+        ;;
+    'x')
+        echo $num1 \* $num2 | bc
+        ;;
+    '/')
+        echo $num1 / $num2 | bc
+        ;;
+    *)
+        echo "Operacao invalida"
+        ;;
+esacs
