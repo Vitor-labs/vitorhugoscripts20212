@@ -1,4 +1,4 @@
-@ -0,0 +1,26 @@
+
 #!/bin/bash
 
 echo "Digite o primeiro numero: "
