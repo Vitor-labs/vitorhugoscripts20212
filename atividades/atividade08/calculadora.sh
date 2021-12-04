@@ -1,5 +1,6 @@
 
 #!/bin/bash
+# Correção: 0,0. Era para ter alterado o programa, não feito um novo.
 
 echo "Digite o primeiro numero: "
 read num1
