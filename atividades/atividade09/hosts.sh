@@ -6,10 +6,10 @@ ip=''
 usage() { echo "Modo de uso:
 - adicionar ($0 -a hostname -i IP)
 - remover   ($0 -d hostname)
-- procurar  ($0 -p hostname)
+- procurar  ($0 hostname)
 - listar    ($0 -l)" 1>&2; exit 1; }
 
-while getopts ":a:i:d:l" o; do
+while getopts "a:i:d:p:l" o; do
     case "${o}" in
         'a')
             host=${OPTARG}
@@ -24,6 +24,12 @@ while getopts ":a:i:d:l" o; do
             host=${OPTARG}
             echo "Removendo host $host"
             sed -i "/$host/d" hosts.db
+            ;;
+        'p')
+            host=${OPTARG}
+            echo "Procurando host $host"
+            out=$(grep $host hosts.db)
+            echo $out
             ;;
         'l')
             echo "Listando hosts"
