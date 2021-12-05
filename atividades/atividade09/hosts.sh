@@ -9,7 +9,7 @@ usage() { echo "Modo de uso:
 - procurar  ($0 -p hostname)
 - listar    ($0 -l)" 1>&2; exit 1; }
 
-while getopts ":a:i:d:p:l" o; do
+while getopts ":a:i:d:l" o; do
     case "${o}" in
         'a')
             host=${OPTARG}
@@ -25,13 +25,7 @@ while getopts ":a:i:d:p:l" o; do
             echo "Removendo host $host"
             sed -i "/$host/d" hosts.db
             ;;
-        'p')
-            host=${OPTARG}
-            echo "Procurando host $host"
-            egrep ^$host hosts.db
-            ;;
         'l')
-            o=${OPTARG}
             echo "Listando hosts"
             cat hosts.db
             ;;
