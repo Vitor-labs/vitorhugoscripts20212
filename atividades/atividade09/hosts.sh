@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Correção: 0,3. Não fez as funções. Não implementou a busca reversa.
 host=''
 ip=''
 
