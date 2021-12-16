@@ -1,4 +1,5 @@
 #!/usr/bin/awk -f
+# Correção: 0,3. Deveria mostrar as linhas, não contá-las.
 
 BEGIN {rst = 0}
 
