@@ -1,0 +1,9 @@
+NOME        CURSO       SALARIO
+Jeandro     Redes       10000
+Elvis       Engenharia  11000
+Hélder      Engenharia  15000
+João        Redes       1000
+Michel      Redes       800
+Jefferson   Sistemas    5000
+Márcio      Sistemas    6000
+Marcos      Redes       11000
