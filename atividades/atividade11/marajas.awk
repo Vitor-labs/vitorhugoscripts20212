@@ -1,3 +1,4 @@
+# Correção: 0,0. Não faz nada. Tudo OK no AWS Academy.
 #!/usr/bin/awk -f
 BEGIN { 
    i = 1
